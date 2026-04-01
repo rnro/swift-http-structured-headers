@@ -526,7 +526,6 @@ extension StructuredFieldValueParser {
 
                 byteArray.append(octet)
             case asciiDquote:
-                #if compiler(>=6.0)
                 if #available(macOS 15.0, iOS 18.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, *) {
                     let unicodeSequence = String(validating: byteArray, as: UTF8.self)
 
@@ -538,9 +537,6 @@ extension StructuredFieldValueParser {
                 } else {
                     return try _decodeDisplayString(byteArray: &byteArray)
                 }
-                #else
-                return try _decodeDisplayString(byteArray: &byteArray)
-                #endif
             default:
                 byteArray.append(char)
             }

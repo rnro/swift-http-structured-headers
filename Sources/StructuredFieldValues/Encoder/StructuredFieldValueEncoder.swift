@@ -263,12 +263,10 @@ extension _StructuredFieldEncoder: SingleValueEncodingContainer {
         try self._encodeFixedWidthInteger(value)
     }
 
-    #if compiler(>=6.0)
     @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
     func encode(_ value: Int128) throws {
         try self._encodeFixedWidthInteger(value)
     }
-    #endif
 
     func encode(_ value: UInt) throws {
         try self._encodeFixedWidthInteger(value)
@@ -290,12 +288,10 @@ extension _StructuredFieldEncoder: SingleValueEncodingContainer {
         try self._encodeFixedWidthInteger(value)
     }
 
-    #if compiler(>=6.0)
     @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
     func encode(_ value: UInt128) throws {
         try self._encodeFixedWidthInteger(value)
     }
-    #endif
 
     func encode(_ data: Data) throws {
         let encoded = data.base64EncodedString()
